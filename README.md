@@ -1,4 +1,4 @@
-# 🟩 100 Days of Code — MERN Stack
+# 100 Days of Code — MERN Stack
 
 This repository documents my complete **100 Days of Code Challenge** focused on the **MERN Stack (MongoDB, Express, React, Node.js)** along with core web technologies like **HTML, CSS, JavaScript, Tailwind CSS, and Bootstrap**.  
 I coded every single day, built projects, learned concepts, and tracked my progress publicly on GitHub.
