@@ -84,3 +84,9 @@ This repository is a complete record of my learning, projects, and dedication th
 
 ## ⭐ Support
 If this repository inspires or helps you, consider giving it a **star**!
+
+## 👨‍💻 Author
+
+**Om Sharma**  
+Indie developer building useful, real-world products.  
+🔗 [LinkedIn](https://www.linkedin.com/in/om-sharma1905/)
