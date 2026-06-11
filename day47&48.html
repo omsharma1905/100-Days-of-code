@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <script>
+        // 🌟 Class with Constructor, Methods, Getters & Setters
+class Person {
+    constructor(name, age = 18) { // Default parameter for age
+        this.name = name;
+        this._age = age; // Private variable convention
+    }
+
+    // Getter
+    get age() {
+        return this._age;
+    }
+
+    // Setter with validation
+    set age(newAge) {
+        if (newAge > 0) {
+            this._age = newAge;
+        } else {
+            console.log("Age must be positive!");
+        }
+    }
+
+    // Method
+    greet() {
+        return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+    }
+}
+
+// 🌟 Creating an Object & Using Methods
+let person1 = new Person("Alice", 25);
+console.log(person1.greet()); 
+
+// Using Getter
+console.log("Age:", person1.age); 
+
+// Using Setter
+person1.age = 30;
+console.log("Updated Age:", person1.age); 
+
+// 🌟 In-Built Object: Date
+let currentDate = new Date();
+console.log("Current Date:", currentDate.toDateString()); 
+
+// 🌟 Object Cloning using Spread Operator
+let clonedPerson = { ...person1 };
+console.log("Cloned Person:", clonedPerson);
+    </script>
+</body>
+</html>

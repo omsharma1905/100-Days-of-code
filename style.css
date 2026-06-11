@@ -1,0 +1,23 @@
+*{
+    background-color: skyblue;
+}
+
+#firstPara{
+    background-color: aliceblue;
+}
+
+#secondPara{
+    background-color: antiquewhite;
+}
+
+#thirdPara{
+    background-color: blanchedalmond;
+}
+
+#fourPara{
+    background-color: cadetblue;
+}
+
+.firstClass{
+    background-color: burlywood;
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application</title>
+</head>
+
+<body>
+    <h2>EMPLOYMENT / JOB APPLICATION</h2>
+    <form onsubmit="return validateForm()">
+        <fieldset>
+            <legend><strong>Person details</strong></legend>
+            <label for="datepicker">Choose Date of Application</label>
+            <input type="date" value="datepicker" required>
+            <br>
+            <br>
+            <label for="email">Enter your Email ID</label>
+            <input type="text" id="email" placeholder="Enter your email" required>
+            <br>
+            <br>
+            <label for="password">Enter your Passwords</label>
+            <input type="password" id="password" placeholder="Enter your password....." required>
+            <br>
+
+            <p>Choose your Gender</p>
+
+            <input type="radio" name="gender" id="male" required>
+            <label for="male">MALE</label>
+            <input type="radio" name="gender" id="female" required>
+            <label for="female">FEMALE</label>
+            <input type="radio" name="gender" id="other" required>
+            <label for="other">Prefer not to say</label>
+
+            <br>
+            <br>
+            <label for="name">Enter your Full Applicant</label>
+            <input type="text" id="name" placeholder="Enter name here....." required>
+            <br>
+            <br>
+            <label for="place_c_s">Type your City and State</label>
+            <input type="text" id="place_c_s" required>
+            <br>
+            <br>
+            <label for="age">Enter your Age</label>
+            <input type="text" id="age" placeholder="Enter age here....." required>
+            <br>
+            <br>
+            <label for="place">Enter your Full Address</label>
+            <input type="text" id="place" placeholder="Enter your Address here....." required>
+            <br>
+            <br>
+            <label for="number">Enter your Phone Number</label>
+            <input type="tel" id="number" placeholder="Enter your number here....." required>
+            <br>
+            <br>
+        </fieldset>
+        <fieldset>
+            <legend><strong>Educational Details</strong></legend>
+            <p> Only <b>75 or above</b> percentage in 10th and 12th is acceptable for this JOB</p>
+            <label for="marks">Enter your 10th Class Percentage</label>
+            <input type="number" id="marks" min="75" max="100" required>
+            <br>
+            <br>
+            <label for="marks12">Enter your 12th Class Percentage</label>
+            <input type="number" id="marks12" min="75" max="100" required>
+            <br>
+            <br>
+            <label for="clg_name">Enter your College name</label>
+            <input type="text" id="clg_name" required>
+            <br>
+            <br>
+            <label for="Program">Select your Program</label>
+            <select name="Select your Program" id="Program" required>
+                <option value="btech">B.Tech</option>
+                <option value="be">B.E</option>
+                <option value="mba">MBA</option>
+                <option value="bca">BCA</option>
+            </select>
+            <br>
+            <br>
+            <label for="department">Select your Department</label>
+            <select name="Select your department" id="department" required>
+                <option value="cse">CSE</option>
+                <option value="ece">ECE</option>
+                <option value="me">ME</option>
+                <option value="ai/ml">AI/ML</option>
+                <option value="cse/ai/ml">CSE With AI/ML</option>
+            </select>
+            <br>
+            <br>
+            <label for="gpa">Enter your CGPA</label>
+            <input type="tel" id="gpa" placeholder="Enter your CGPA....." required>
+        </fieldset>
+        <fieldset>
+            <legend><b>Upload Require Documents</b></legend>
+            <label for="photo">Upload Profile Photo</label>
+            <input type="file" name="doc_photo" id="photo" required>
+            <br>
+            <br>
+            <label for="sign">Upload your Signature</label>
+            <input type="file" name="doc_sign" id="sign" required>
+            <br>
+            <br>
+            <label for="birth">Upload your birth Certificate</label>
+            <input type="file" name="doc_photo" id="birth" required>
+            <br>
+            <br>
+            <label for="certificate">Upload your All Certificate</label>
+            <input type="file" name="doc_certificate" id="certificate" required>
+            <br>
+            <br>
+            <label for="card">Upload your Aadhaar Card</label>
+            <input type="file" name="doc_card" id="card" required>
+            <br>
+            <br>
+            <label for="pan_card">Upload your PAN Card</label>
+            <input type="file" name="doc_pan_card" id="pan_card" required>
+            <br>
+            <br>
+            <label for="project">Upload your main Project</label>
+            <input type="file" name="doc_Project" id="project" required>
+            <br>
+            <br>
+        </fieldset>
+        <fieldset>
+            <legend><b>Employee's position and Company's Rules and Regulations</b></legend>
+            <label for="position">Select for which position are you application</label>
+            <select name="Select your department" id="position" required>
+                <option value="1">Sales Executive/manager</option>
+                <option value="2">Software Engineer/Developer</option>
+                <option value="3">Data Scientist</option>
+                <option value="4">Content Writer</option>
+                <option value="5">Accountant</option>
+                <option value="6">Supply Chain Manager</option>
+                <option value="7">Legal Advisor</option>
+                <option value="8">Network Engineer</option>
+                <option value="9">System Administrator</option>
+                <option value="10">Financial Analyst</option>
+            </select>
+
+            <p><b>Rules and Regulations</b></p>
+            <input type="checkbox" name="rule_1" id="rule1" required>
+            <label for="rule1">I will be in discipline and be punctual</label>
+            <br>
+            <input type="checkbox" name="rule_2" id="rule2" required>
+            <label for="rule2">I will be doing my work on time</label>
+            <br>
+            <input type="checkbox" name="rule_3" id="rule3" required>
+            <label for="rule3">I will be working in team and will maintain good behaviour with my teammates</label>
+            <br>
+            <input type="checkbox" name="rule_4" id="rule4" required>
+            <label for="rule4">If I violate any of the ruke I can be fired or salary can be deducted</label>
+        </fieldset>
+        <fieldset>
+            <label for="comments">Comments:</label>
+            <br>
+            <textarea name="comments" id="Comments" rows="20" cols="40"
+                placeholder="write your comments.....">
+            </textarea>
+            <br>
+            <input type="checkbox" name="undertake" id="rule">
+            <label for="rule">All the information are best in my knowledge</label>
+            <br>
+            <br>
+            <button>Submit your Application</button>
+        </fieldset>
+    </form>
+</body>
+
+</html>

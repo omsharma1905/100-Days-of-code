@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM & Performance Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20px auto;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 id="title">JavaScript DOM Manipulation</h2>
+    <button id="changeText">Change Text</button>
+    <button id="changeColor">Change Box Color</button>
+    
+    <div class="box"></div>
+
+    <script>
+        // 🌟 Error Handling
+        try {
+            console.log(undeclaredVar); // This will throw an error
+        } catch (error) {
+            console.log("Caught an error:", error.message);
+        } finally {
+            console.log("Error handling completed.");
+        }
+
+        // 🌟 DOM Manipulation: Changing HTML
+        document.getElementById("changeText").addEventListener("click", function() {
+            document.getElementById("title").innerText = "Text Changed!";
+        });
+
+        // 🌟 DOM Manipulation: Changing CSS
+        document.getElementById("changeColor").addEventListener("click", function() {
+            document.querySelector(".box").style.backgroundColor = "red";
+        });
+
+        // 🌟 Performance Optimization (Reflow & Repaint)
+        document.getElementById("changeColor").addEventListener("click", function() {
+            let box = document.querySelector(".box");
+
+            // Minimize reflows by batching style changes
+            box.style.width = "110px";
+            box.style.height = "110px";
+            box.style.backgroundColor = "green"; // This causes only one reflow instead of multiple
+        });
+    </script>
+
+</body>
+</html>

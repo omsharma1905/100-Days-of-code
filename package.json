@@ -1,0 +1,15 @@
+{
+  "name": "100daysofcode",
+  "version": "1.0.0",
+  "main": "day81-82.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.14.1"
+  },
+  "description": ""
+}

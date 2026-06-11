@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <script>
+        // 🌟 Arrays and Methods
+let numbers = [1, 2, 3, 4, 5];
+let doubled = numbers.map(num => num * 2); // Using map() to double each number
+
+console.log("Original Array:", numbers);
+console.log("Doubled Array:", doubled);
+
+// 🌟 Function Call Stack
+function first() {
+    console.log("First function called");
+    second();
+}
+
+function second() {
+    console.log("Second function called");
+    third();
+}
+
+function third() {
+    console.log("Third function called");
+}
+
+first(); // This demonstrates how functions are pushed and popped from the call stack
+
+// 🌟 Hoisting Example
+console.log(hoistedVar); // Undefined (var is hoisted but not initialized)
+var hoistedVar = "I am hoisted!";
+
+// Function hoisting
+hoistedFunction();
+function hoistedFunction() {
+    console.log("Function is hoisted!");
+}
+
+// 🌟 Temporal Dead Zone (TDZ)
+console.log("Trying to access let/const before declaration:");
+try {
+    console.log(myLetVar); // ReferenceError: Cannot access 'myLetVar' before initialization
+} catch (error) {
+    console.log(error.message);
+}
+
+let myLetVar = "I am inside TDZ before this line";
+
+// 🌟 Variable Scoping
+function scopeExample() {
+    var functionScoped = "Accessible only inside this function";
+    if (true) {
+        let blockScoped = "Accessible only inside this block";
+        console.log(blockScoped);
+    }
+    // console.log(blockScoped); // Error: blockScoped is not defined
+    console.log(functionScoped);
+}
+
+scopeExample();
+    </script>
+</body>
+</html>

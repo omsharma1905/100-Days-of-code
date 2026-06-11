@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <script>
+        // Function to count vowels in a string
+function countVowels(str) {
+    let count = 0;
+    let vowels = "aeiouAEIOU";
+
+    // Loop through each character in the string
+    for (let i = 0; i < str.length; i++) {
+        if (vowels.includes(str[i])) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+// Function to reverse a string
+function reverseString(str) {
+    return str.split("").reverse().join("");
+}
+
+// Testing the functions
+let text = "JavaScript is awesome!";
+console.log("Original String:", text);
+console.log("Vowel Count:", countVowels(text));
+console.log("Reversed String:", reverseString(text));
+    </script>
+</body>
+</html>
