@@ -1,0 +1,28 @@
+{
+  "scripts": {
+    "start": "vite"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.26",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.2.6"
+  },
+  "dependencies": {
+    "feather": "^0.0.5"
+  },
+  "name": "razorpay-clone",
+  "version": "1.0.0",
+  "description": "I created a clone of Razorpay, a popular payment gateway platform, using HTML, CSS, and Tailwind CSS. With HTML, I structured the content of the website and used CSS to define the layout and styling of the page elements. I used Tailwind CSS, a utility-first CSS framework, to speed up the development process and create a responsive design that works seamlessly across different devices. The clone website features a clean and modern design that closely resembles the original Razorpay platform. I made sure to use similar color schemes, typography, and icons to maintain consistency with the brand.",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gajendra-ingle/Razorpay-Clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gajendra-ingle/Razorpay-Clone/issues"
+  },
+  "homepage": "https://github.com/gajendra-ingle/Razorpay-Clone#readme"
+}
