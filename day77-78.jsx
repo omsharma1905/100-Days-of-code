@@ -43,23 +43,16 @@ function App() {
 
   return (
     <div style={{ padding: "1rem" }}>
-
-      {/* Heading */}
       <h2>React Form Example</h2>
 
       {/* Form */}
       <form onSubmit={handleSubmit}>
-
         {/* Name Input */}
         <input
           type="text"
           name="name"
           placeholder="Enter Name"
-
-          // Controlled Component:
-          // Value comes from React state
           value={formData.name}
-
           // Update state when user types
           onChange={handleChange}
         />
@@ -72,10 +65,7 @@ function App() {
           type="email"
           name="email"
           placeholder="Enter Email"
-
-          // Controlled Component
           value={formData.email}
-
           // Update state when user types
           onChange={handleChange}
         />
@@ -90,15 +80,8 @@ function App() {
 
       </form>
 
-      {/* 
-        Conditional Rendering
-
-        If error contains text:
-        show error message
-
-        If error is empty:
-        show nothing
-      */}
+      {/* Conditional Rendering --> If error contains text: show error message
+                                    If error is empty: show nothing */}
       {error && (
         <p style={{ color: "red" }}>
           {error}
