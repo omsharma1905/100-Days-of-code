@@ -4,19 +4,31 @@ import { Helmet } from 'react-helmet';
 function App() {
   return (
     <div>
+      {/* 
+        Helmet is used to manage the document head.
+        Anything inside Helmet will be added to the <head> section
+        of the HTML document.
+      */}
       <Helmet>
+        {/* Sets the browser tab title dynamically */}
         <title>{import.meta.env.VITE_SITE_TITLE}</title>
-        <meta name="description" content="A simple React Helmet and .env demo." />
+
+        {/* Adds a meta description tag for SEO */}
+        <meta
+          name="description"
+          content="A simple React Helmet and .env demo."
+        />
       </Helmet>
 
+      {/* Displaying the site title from the .env file */}
       <h1>{import.meta.env.VITE_SITE_TITLE}</h1>
-      <p>This is a minimal example using environment variables and React Helmet.</p>
+
+      {/* Normal page content */}
+      <p>
+        This is a minimal example using environment variables and React Helmet.
+      </p>
     </div>
   );
 }
 
 export default App;
-
-
-
-// VITE_SITE_TITLE=My React App [In a another file with .env extension]
