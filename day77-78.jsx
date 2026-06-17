@@ -28,20 +28,12 @@ function App() {
     // Prevent page refresh
     e.preventDefault();
 
-    /*
-      Validation:
-      Check if name or email is empty.
-    */
+    /* Validation: Check if name or email is empty. */
     if (!formData.name || !formData.email) {
-
-      // Show error message
       setError("Please fill in all fields");
-
     } else {
-
       // Clear error if validation passes
       setError("");
-
       // Show submitted data
       alert(
         `Submitted: ${formData.name} (${formData.email})`
