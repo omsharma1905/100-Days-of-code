@@ -1,43 +1,20 @@
-// App.js
-
 // Import React and useState Hook
 import React, { useState } from "react";
 
 function App() {
-
-  /*
-    formData stores the values of the form fields.
-    Initial state:
-    {
-      name: "",
-      email: ""
-    }
-  */
+  /* formData stores the values of the form fields. */
   const [formData, setFormData] = useState({
     name: "",
     email: ""
   });
 
-  /*
-    error stores validation error messages.
-    Initially empty.
-  */
+  /* error stores validation error messages.
+    Initially empty. */
   const [error, setError] = useState("");
 
-  /*
-    Runs whenever the user types in an input field.
-
+  /* Runs whenever the user types in an input field.
     e.target.name  -> input field name (name/email)
-    e.target.value -> current value entered by user
-
-    Example:
-    If user types "Om" in name field:
-
-    {
-      name: "Om",
-      email: ""
-    }
-  */
+    e.target.value -> current value entered by user */
   const handleChange = (e) => {
     setFormData({
       ...formData, // keep existing values
@@ -45,9 +22,7 @@ function App() {
     });
   };
 
-  /*
-    Runs when the form is submitted.
-  */
+  /* Runs when the form is submitted. */
   const handleSubmit = (e) => {
 
     // Prevent page refresh
