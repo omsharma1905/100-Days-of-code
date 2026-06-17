@@ -35,9 +35,9 @@ export default App;
 
 
 
-# Environment variable used inside the React application
+// # Environment variable used inside the React application
 
-# In Vite, environment variables must start with VITE_
-# Otherwise they won't be accessible in the frontend.
+// # In Vite, environment variables must start with VITE_
+// # Otherwise they won't be accessible in the frontend.
 
-VITE_SITE_TITLE=My React App
+// VITE_SITE_TITLE=My React App
