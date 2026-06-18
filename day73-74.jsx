@@ -1,6 +1,4 @@
 // App.js
-
-// Import React and useState Hook
 import React, { useState } from "react";
 
 function App() {
@@ -17,9 +15,6 @@ function App() {
       ...formData,
 
       // Update the field whose name matches the input name
-      // Example:
-      // username -> updates username
-      // email -> updates email
       [e.target.name]: e.target.value
     });
   };
@@ -29,7 +24,7 @@ function App() {
     // Prevent page refresh
     e.preventDefault();
 
-    // Print form data in console
+    // Prints form data in console
     console.log("Form Submitted:", formData);
   };
 
