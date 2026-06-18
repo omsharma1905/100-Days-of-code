@@ -63,5 +63,5 @@ function App() {
   );
 }
 
-// Export default app
+// Export statement
 export default App;
