@@ -36,10 +36,10 @@ function App() {
       {/* Username Input */}
       <input
         type="text"
-        name="username" // Key used in state object
+        name="username"
         placeholder="Enter username"
-        value={formData.username} // Controlled input
-        onChange={handleChange} // Update state on typing
+        value={formData.username}
+        onChange={handleChange}
       />
 
       <br />
@@ -47,10 +47,10 @@ function App() {
       {/* Email Input */}
       <input
         type="email"
-        name="email" // Key used in state object
+        name="email"
         placeholder="Enter email"
-        value={formData.email} // Controlled input
-        onChange={handleChange} // Update state on typing
+        value={formData.email}
+        onChange={handleChange}
       />
 
       <br />
