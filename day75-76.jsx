@@ -9,6 +9,7 @@ const Contact = () => <h2>Contact Page</h2>;
 function App() {
   return (
     <BrowserRouter>
+      {/* Navbar and NavLinks */}
       <nav>
         <Link to="/">Home</Link> |{" "}
         <Link to="/about">About</Link> |{" "}
