@@ -52,6 +52,7 @@ function App() {
         />
         <br />
 
+        {/* Submits the form*/}
         <button type="submit">Submit</button>
       </form>
     </div>
