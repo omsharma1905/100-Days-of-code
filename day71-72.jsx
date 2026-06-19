@@ -29,6 +29,7 @@ function App() {
           ))}
         </ul>
       ) : (
+      // Displayed when the users array is empty
         <p>No users found.</p>
       )}
     </div>
