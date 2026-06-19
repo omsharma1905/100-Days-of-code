@@ -1,6 +1,3 @@
-// App.js
-
-// Import React and the useState hook
 import React, { useState } from "react";
 
 function App() {
