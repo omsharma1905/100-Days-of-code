@@ -36,8 +36,8 @@ function App() {
         <input
           type="text"
           name="username"
-          value={formData.username} // Controlled input value
-          onChange={handleChange} // Updates state on typing
+          value={formData.username}
+          onChange={handleChange}
           placeholder="Enter Username"
         />
         <br />
@@ -46,13 +46,12 @@ function App() {
         <input
           type="email"
           name="email"
-          value={formData.email} // Controlled input value
-          onChange={handleChange} // Updates state on typing
+          value={formData.email}
+          onChange={handleChange}
           placeholder="Enter Email"
         />
         <br />
 
-        {/* Submit Button */}
         <button type="submit">Submit</button>
       </form>
     </div>
