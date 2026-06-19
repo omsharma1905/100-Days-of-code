@@ -9,30 +9,26 @@ function App() {
 
   return (
     <div>
-      {/* Conditional Rendering Example */}
       <h2>Conditional Rendering</h2>
 
       {/* Ternary operator checks login status */}
       {loggedIn ? (
-        <p>Welcome back, user!</p> // Displayed when loggedIn is true
+        <p>Welcome back, user!</p>
       ) : (
-        <p>Please log in to continue.</p> // Displayed when loggedIn is false
+        <p>Please log in to continue.</p>
       )}
 
-      {/* Rendering Lists Example */}
-      <h2>User List</h2>
+      <h2>Rendering User List</h2>
 
       {/* Check if users array has any items */}
       {users.length > 0 ? (
         <ul>
-          {/* map() loops through the users array and renders each user */}
           {users.map((user, index) => (
             // key helps React identify each list item uniquely
             <li key={index}>{user}</li>
           ))}
         </ul>
       ) : (
-        // Displayed when the users array is empty
         <p>No users found.</p>
       )}
     </div>
