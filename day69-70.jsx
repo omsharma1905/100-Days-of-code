@@ -7,15 +7,14 @@ function App() {
     email: "",
   });
 
-  // Runs whenever an input field value changes
   const handleChange = (e) => {
     // Extract name and value from the input field
     const { name, value } = e.target;
 
     // Update the corresponding field in formData
     setFormData((prev) => ({
-      ...prev, // Keep existing values
-      [name]: value, // Update the changed field
+      ...prev,
+      [name]: value,
     }));
   };
 
@@ -24,7 +23,6 @@ function App() {
     // Prevent page reload
     e.preventDefault();
 
-    // Display form data in the console
     console.log("Form submitted:", formData);
   };
 
