@@ -1,4 +1,3 @@
-// Import React and useState Hook
 import React, { useState } from "react";
 
 function App() {
