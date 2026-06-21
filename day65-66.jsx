@@ -22,7 +22,6 @@ function App() {
 
   // Runs when the form is submitted
   function handleSubmit(e) {
-    // Prevent page refresh (default form behavior)
     e.preventDefault();
 
     // Show submitted data
@@ -30,7 +29,6 @@ function App() {
   }
 
   return (
-    // onSubmit triggers when button type="submit" is clicked
     <form onSubmit={handleSubmit}>
       
       {/* Name Input */}
