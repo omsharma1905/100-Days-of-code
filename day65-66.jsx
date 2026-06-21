@@ -57,5 +57,5 @@ function App() {
   );
 }
 
-// Export component
+// Exporting component
 export default App;
