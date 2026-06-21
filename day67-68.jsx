@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div>
-      {/* Button to show/hide the message */}
+      
       <button
         onClick={() =>
           // Toggle the value between true and false
