@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 function App() {
   // State object to store form values
-  // formData = current state
-  // setFormData = function to update state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
