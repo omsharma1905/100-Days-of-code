@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function App() {
+    // State to control whether the message is visible or not
   const [showMessage, setShowMessage] = useState(true);
 
   // State to store an array of technologies
