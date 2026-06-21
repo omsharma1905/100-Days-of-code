@@ -34,10 +34,10 @@ function App() {
       {/* Name Input */}
       <input
         type="text"
-        name="name" // Used to identify which field is being updated
+        name="name"
         placeholder="Enter name"
-        value={formData.name} // Controlled by React state
-        onChange={handleChange} // Updates state when user types
+        value={formData.name}
+        onChange={handleChange}
       />
 
       {/* Email Input */}
