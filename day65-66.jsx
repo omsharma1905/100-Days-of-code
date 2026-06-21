@@ -43,10 +43,10 @@ function App() {
       {/* Email Input */}
       <input
         type="email"
-        name="email" // Used to identify this field
+        name="email"
         placeholder="Enter email"
-        value={formData.email} // Controlled by React state
-        onChange={handleChange} // Updates state when user types
+        value={formData.email}
+        onChange={handleChange}
       />
 
       {/* Submit Button */}
