@@ -13,13 +13,9 @@ function App() {
 
     // Update state without losing existing values
     setFormData((prev) => ({
-      // Copy previous state
       ...prev,
 
       // Update only the field being edited
-      // If name = "email"
-      // then it becomes:
-      // email: value
       [name]: value,
     }));
   }
