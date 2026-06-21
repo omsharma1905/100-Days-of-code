@@ -9,11 +9,6 @@ function App() {
 
   // Runs whenever the user types in an input field
   function handleChange(e) {
-    // Extract name and value from the input that triggered the event
-    // Example:
-    // <input name="name" value="Om" />
-    // name = "name"
-    // value = "Om"
     const { name, value } = e.target;
 
     // Update state without losing existing values
