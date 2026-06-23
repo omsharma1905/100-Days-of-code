@@ -1,6 +1,3 @@
-// App.js
-
-// Import React library
 import React from "react";
 
 // WelcomeMessage component receives a prop called isLoggedIn
