@@ -1,6 +1,3 @@
-// App.js
-
-// Import React library
 import React from "react";
 
 // Greeting component receives props as an argument
