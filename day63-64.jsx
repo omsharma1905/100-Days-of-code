@@ -3,9 +3,7 @@ import React from "react";
 // WelcomeMessage component receives a prop called isLoggedIn
 function WelcomeMessage({ isLoggedIn }) {
   return (
-    // Conditional rendering using a ternary operator
-    // If isLoggedIn is true, show welcome message
-    // Otherwise, show login message
+    // Conditional rendering
     <h2>
       {isLoggedIn
         ? "Welcome back, user!"
