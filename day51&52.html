@@ -52,27 +52,17 @@
                 console.log("Error:", error);
             });
 
-
-        // =====================================================
+        
         // Async / Await Example
-        // =====================================================
         // Async/Await provides a cleaner way to work with Promises
-
         async function fetchDataAsync() {
-
             try {
-
                 // Wait until fetchData() Promise resolves
                 let response = await fetchData();
-
                 console.log("Using Async-Await:", response);
-
             } catch (error) {
-
                 console.log("Error:", error);
-
             }
-
         }
 
         // Call the async function
