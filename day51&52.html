@@ -31,26 +31,16 @@
         console.log("End");
 
 
-        // =====================================================
         // Promise Example
-        // =====================================================
         // Creates a Promise that resolves after 2 seconds
-
         function fetchData() {
-
             return new Promise((resolve, reject) => {
-
                 setTimeout(() => {
-
                     let data = "Fetched Data";
-
                     // Promise successfully resolved
                     resolve(data);
-
                 }, 2000);
-
             });
-
         }
 
         // Consuming the Promise using .then() and .catch()
