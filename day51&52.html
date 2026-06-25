@@ -87,36 +87,27 @@
         getUsers();
 
 
-        // =====================================================
         // Closures Example
-        // =====================================================
-        // A closure allows an inner function to remember
-        // variables from its outer function even after
-        // the outer function has finished executing.
-
+        /* A closure allows an inner function to remember
+         variables from its outer function even after
+         the outer function has finished executing */
         function counter() {
-
             // Private variable
             let count = 0;
-
             // Return an inner function
             return function () {
-
                 count++;
-
                 console.log("Counter:", count);
-
             };
-
         }
 
         // Create a new counter
         let increment = counter();
 
         // Each function call remembers the previous value of 'count'
-        increment();   // Counter: 1
-        increment();   // Counter: 2
-        increment();   // Counter: 3
+        increment();
+        increment();
+        increment();
 
     </script>
 
