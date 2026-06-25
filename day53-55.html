@@ -10,22 +10,38 @@
 <html lang="en">
 
 <head>
+    <!-- Character Encoding -->
     <meta charset="UTF-8" />
+
+    <!-- Makes the website responsive on all devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Website Title -->
     <title>LeetCode Metrics Dashboard</title>
+
+    <!-- Chart.js Library for Doughnut Chart -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
+        /* Remove default browser spacing */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Body Styling */
         body {
             font-family: 'Inter', sans-serif;
+
+            /* Background Image */
             background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
             background-size: cover;
+
+            /* Center container */
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -33,6 +49,7 @@
             position: relative;
         }
 
+        /* Dark Overlay over Background Image */
         body::before {
             content: '';
             position: absolute;
@@ -44,27 +61,35 @@
             z-index: 0;
         }
 
+        /* Main Card Container */
         .container {
             position: relative;
             z-index: 1;
+
+            /* Glassmorphism Effect */
             backdrop-filter: blur(16px);
             background: rgba(255, 255, 255, 0.1);
+
             border-radius: 16px;
             padding: 40px 30px;
             max-width: 500px;
             width: 90%;
+
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.2);
+
             color: #fff;
             text-align: center;
         }
 
+        /* Heading */
         h1 {
             font-size: 26px;
             margin-bottom: 20px;
             font-weight: 600;
         }
 
+        /* Username Input Box */
         input[type="text"] {
             width: 100%;
             padding: 14px;
@@ -72,37 +97,47 @@
             border-radius: 8px;
             font-size: 16px;
             margin-bottom: 20px;
+
             background: rgba(255, 255, 255, 0.2);
             color: #fff;
             outline: none;
         }
 
+        /* Placeholder Text */
         input::placeholder {
             color: #ccc;
         }
 
+        /* Search Button */
         button {
             width: 100%;
             padding: 12px;
+
             background: linear-gradient(to right, #ff9800, #f44336);
+
             border: none;
             border-radius: 8px;
+
             font-size: 16px;
             color: #fff;
             font-weight: 600;
+
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
+        /* Hover Effect */
         button:hover {
             background: linear-gradient(to right, #f57c00, #e53935);
         }
 
+        /* Output Section */
         #output {
             margin-top: 24px;
             text-align: left;
         }
 
+        /* Individual Stat Card */
         #output p {
             background: rgba(255, 255, 255, 0.1);
             padding: 10px;
@@ -111,6 +146,7 @@
             font-size: 15px;
         }
 
+        /* Chart Styling */
         canvas {
             margin-top: 25px;
         }
@@ -118,20 +154,48 @@
 </head>
 
 <body>
+
+    <!-- Main Container -->
     <div class="container">
+
+        <!-- Project Heading -->
         <h1>📊 LeetCode Metrics Dashboard</h1>
-        <input type="text" id="username" placeholder="Enter LeetCode username" />
+
+        <!-- Username Input -->
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter LeetCode username"
+        />
+
+        <!-- Button to Fetch User Statistics -->
         <button onclick="getUserStats()">Get Stats</button>
+
+        <!-- Statistics Output -->
         <div id="output"></div>
+
+        <!-- Chart Canvas -->
         <canvas id="chart" width="300" height="300"></canvas>
+
     </div>
 
     <script>
+
+        // ==========================================
+        // Fetch LeetCode User Statistics
+        // ==========================================
         async function getUserStats() {
+
+            // Get entered username
             const username = document.getElementById('username').value.trim();
+
+            // Output container
             const output = document.getElementById('output');
+
+            // Show loading text
             output.innerHTML = 'Loading...';
 
+            // GraphQL Query to fetch submission statistics
             const query = `
         query getUserProfile($username: String!) {
           matchedUser(username: $username) {
@@ -146,65 +210,131 @@
         }`;
 
             try {
-                const response = await fetch('https://cors-anywhere.herokuapp.com/https://leetcode.com/graphql', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        query: query,
-                        variables: { username: username }
-                    })
-                });
 
+                // Send POST request to LeetCode GraphQL API
+                const response = await fetch(
+                    'https://cors-anywhere.herokuapp.com/https://leetcode.com/graphql',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            query: query,
+                            variables: {
+                                username: username
+                            }
+                        })
+                    }
+                );
+
+                // Convert response to JSON
                 const data = await response.json();
+
+                // Extract submission statistics
                 const stats = data.data.matchedUser?.submitStats?.acSubmissionNum;
 
+                // If username doesn't exist
                 if (!stats) {
                     output.innerHTML = '❌ User not found or no data available.';
                     return;
                 }
 
-                let html = `<h3 style="margin-bottom: 15px;">✅ Stats for <span style="color: #ffd54f">${username}</span></h3>`;
-                const labels = [], counts = [];
+                // HTML to display stats
+                let html =
+                    `<h3 style="margin-bottom: 15px;">
+                        ✅ Stats for
+                        <span style="color: #ffd54f">${username}</span>
+                    </h3>`;
+
+                // Arrays for chart
+                const labels = [];
+                const counts = [];
+
+                // Loop through all difficulty levels
                 stats.forEach(stat => {
-                    html += `<p><strong>${stat.difficulty}:</strong> ${stat.count} problems</p>`;
+
+                    // Add statistics to HTML
+                    html += `
+                        <p>
+                            <strong>${stat.difficulty}:</strong>
+                            ${stat.count} problems
+                        </p>`;
+
+                    // Store values for chart
                     labels.push(stat.difficulty);
                     counts.push(stat.count);
                 });
 
+                // Display statistics
                 output.innerHTML = html;
+
+                // Draw chart
                 renderChart(labels, counts);
+
             } catch (error) {
-                output.innerHTML = "⚠️ Something went wrong. Please try again later.";
+
+                // Display error message
+                output.innerHTML =
+                    "⚠️ Something went wrong. Please try again later.";
+
                 console.error(error);
             }
         }
 
+        // ==========================================
+        // Create Doughnut Chart
+        // ==========================================
         function renderChart(labels, data) {
-            const ctx = document.getElementById('chart').getContext('2d');
+
+            // Get canvas context
+            const ctx = document
+                .getElementById('chart')
+                .getContext('2d');
+
+            // Destroy previous chart if it exists
             if (window.myChart) {
                 window.myChart.destroy();
             }
+
+            // Create new Doughnut Chart
             window.myChart = new Chart(ctx, {
+
                 type: 'doughnut',
+
                 data: {
                     labels: labels,
+
                     datasets: [{
                         label: 'Solved',
+
                         data: data,
-                        backgroundColor: ['#4caf50', '#ff9800', '#f44336'],
+
+                        backgroundColor: [
+                            '#4caf50',   // Easy
+                            '#ff9800',   // Medium
+                            '#f44336'    // Hard
+                        ],
+
                         borderColor: '#fff',
                         borderWidth: 2
                     }]
                 },
+
                 options: {
+
                     responsive: true,
+
                     plugins: {
+
                         legend: {
+
                             position: 'bottom',
+
                             labels: {
+
                                 color: '#fff',
+
                                 font: {
                                     weight: 'bold'
                                 }
@@ -214,7 +344,9 @@
                 }
             });
         }
+
     </script>
+
 </body>
 
 </html>
