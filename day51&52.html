@@ -1,75 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Character Encoding -->
     <meta charset="UTF-8">
+
+    <!-- Makes the webpage responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Webpage Title -->
     <title>JavaScript</title>
 </head>
+
 <body>
+
     <script>
-        // 🌟 Event Loop Demonstration
-console.log("Start");
 
-setTimeout(() => {
-    console.log("Inside setTimeout (Callback Queue)");
-}, 0);
+        // =====================================================
+        // Event Loop Demonstration
+        // =====================================================
+        // This example demonstrates the execution order of:
+        // 1. Synchronous code
+        // 2. Microtask Queue (Promises)
+        // 3. Callback Queue (setTimeout)
 
-Promise.resolve().then(() => console.log("Inside Promise (Microtask Queue)"));
+        console.log("Start");
 
-console.log("End");
-
-// 🌟 Promises Example
-function fetchData() {
-    return new Promise((resolve, reject) => {
+        // Executes after the Call Stack is empty
+        // Even with 0ms delay, it waits in the Callback Queue
         setTimeout(() => {
-            let data = "Fetched Data";
-            resolve(data);
-        }, 2000);
-    });
-}
+            console.log("Inside setTimeout (Callback Queue)");
+        }, 0);
 
-fetchData()
-    .then(response => console.log(response))
-    .catch(error => console.log("Error:", error));
+        // Promise callback goes into the Microtask Queue
+        // Microtasks execute before Callback Queue tasks
+        Promise.resolve().then(() => {
+            console.log("Inside Promise (Microtask Queue)");
+        });
 
-// 🌟 Async-Await Example
-async function fetchDataAsync() {
-    try {
-        let response = await fetchData();
-        console.log("Using Async-Await:", response);
-    } catch (error) {
-        console.log("Error:", error);
-    }
-}
+        console.log("End");
 
-fetchDataAsync();
 
-// 🌟 Fetch API Example
-async function getUsers() {
-    try {
-        let response = await fetch("https://jsonplaceholder.typicode.com/users");
-        let users = await response.json();
-        console.log("Fetched Users:", users);
-    } catch (error) {
-        console.log("Fetch API Error:", error);
-    }
-}
+        // =====================================================
+        // Promise Example
+        // =====================================================
+        // Creates a Promise that resolves after 2 seconds
 
-getUsers();
+        function fetchData() {
 
-// 🌟 Closures Example
-function counter() {
-    let count = 0;
-    return function () {
-        count++;
-        console.log("Counter:", count);
-    };
-}
+            return new Promise((resolve, reject) => {
 
-let increment = counter();
-increment(); // Counter: 1
-increment(); // Counter: 2
-increment(); // Counter: 3
+                setTimeout(() => {
+
+                    let data = "Fetched Data";
+
+                    // Promise successfully resolved
+                    resolve(data);
+
+                }, 2000);
+
+            });
+
+        }
+
+        // Consuming the Promise using .then() and .catch()
+        fetchData()
+
+            .then(response => {
+                console.log(response);
+            })
+
+            .catch(error => {
+                console.log("Error:", error);
+            });
+
+
+        // =====================================================
+        // Async / Await Example
+        // =====================================================
+        // Async/Await provides a cleaner way to work with Promises
+
+        async function fetchDataAsync() {
+
+            try {
+
+                // Wait until fetchData() Promise resolves
+                let response = await fetchData();
+
+                console.log("Using Async-Await:", response);
+
+            } catch (error) {
+
+                console.log("Error:", error);
+
+            }
+
+        }
+
+        // Call the async function
+        fetchDataAsync();
+
+
+        // =====================================================
+        // Fetch API Example
+        // =====================================================
+        // Fetches user data from a public API
+
+        async function getUsers() {
+
+            try {
+
+                // Send HTTP GET request
+                let response = await fetch("https://jsonplaceholder.typicode.com/users");
+
+                // Convert response into JSON
+                let users = await response.json();
+
+                console.log("Fetched Users:", users);
+
+            } catch (error) {
+
+                console.log("Fetch API Error:", error);
+
+            }
+
+        }
+
+        // Call the Fetch API function
+        getUsers();
+
+
+        // =====================================================
+        // Closures Example
+        // =====================================================
+        // A closure allows an inner function to remember
+        // variables from its outer function even after
+        // the outer function has finished executing.
+
+        function counter() {
+
+            // Private variable
+            let count = 0;
+
+            // Return an inner function
+            return function () {
+
+                count++;
+
+                console.log("Counter:", count);
+
+            };
+
+        }
+
+        // Create a new counter
+        let increment = counter();
+
+        // Each function call remembers the previous value of 'count'
+        increment();   // Counter: 1
+        increment();   // Counter: 2
+        increment();   // Counter: 3
+
     </script>
+
 </body>
+
 </html>
